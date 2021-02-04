@@ -16,6 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
 
+            $table->integer('marketplace_id', false, true);
             $table->integer('external_id', false, true);
             $table->integer('category_id', false, true);
             $table->string('name');
@@ -35,8 +36,9 @@ class CreateProductsTable extends Migration
             $table->boolean('pickup')->nullable();
             $table->boolean('manufacturer_warranty')->nullable();
 
-
             $table->timestamps();
+
+            $table->unique(['marketplace_id', 'external_id']);
         });
     }
 
