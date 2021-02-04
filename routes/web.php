@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('', [ProductsController::class, 'index'])->name('index');
+Route::get('items/{id}', [ProductsController::class, 'show'])->name('items.show');
+Route::get('import', [ProductsController::class, 'import'])->name('import');
