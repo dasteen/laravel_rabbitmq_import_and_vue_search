@@ -10,9 +10,7 @@ use Illuminate\Http\Request;
 class ProductsController extends Controller
 {
     public function index() {
-        $products = Product::query()->paginate(3);
-
-        return view('index', compact('products'));
+        return view('index');
     }
 
     public function show($id) {
@@ -49,8 +47,6 @@ class ProductsController extends Controller
             ])
             ->when($term, function ($query) use ($term) {
                 $query->whereRaw("MATCH (`name`, `description`) AGAINST ('*$term*' IN BOOLEAN MODE)");
-//            ->where('name', 'like', "%$term%")
-//            ->orWhere('description', 'like', "%$term%")
             })
             ->paginate(3);
 

@@ -38,17 +38,17 @@
                 <nav role="navigation" class="flex items-center justify-between">
                     <div class="flex justify-between flex-1 sm:hidden">
 
-                        <a v-if="pagination.prevPageLink" v-bind:href="pagination.prevPageLink" class="sm:rounded-lg relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500  border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                        <a v-if="pagination.prevPage" v-on:click.prevent="toPage(pagination.prevPage)" href="#" class="sm:rounded-lg relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500  border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
                             {!! __('pagination.previous') !!}
                         </a>
-                        <span v-if="!pagination.prevPageLink" class="sm:rounded-lg relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700  border border-gray-300 cursor-default leading-5 rounded-md">
+                        <span v-if="!pagination.prevPage" class="sm:rounded-lg relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700  border border-gray-300 cursor-default leading-5 rounded-md">
                             {!! __('pagination.previous') !!}
                         </span>
 
-                        <a v-if="pagination.nextPageLink" v-bind:href="pagination.nextPageLink" class="sm:rounded-lg relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-500 border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                        <a v-if="pagination.nextPage" v-on:click.prevent="toPage(pagination.nextPage)" href="#" class="sm:rounded-lg relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-500 border border-gray-300 leading-5 rounded-md hover:text-gray-500 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
                             {!! __('pagination.next') !!}
                         </a>
-                        <span v-if="!pagination.nextPageLink" class="sm:rounded-lg relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700  border border-gray-300 cursor-default leading-5 rounded-md">
+                        <span v-if="!pagination.nextPage" class="sm:rounded-lg relative inline-flex items-center px-4 py-2 ml-3 text-sm font-medium text-gray-700  border border-gray-300 cursor-default leading-5 rounded-md">
                             {!! __('pagination.next') !!}
                         </span>
                     </div>
