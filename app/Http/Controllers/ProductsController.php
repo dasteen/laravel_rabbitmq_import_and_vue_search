@@ -36,4 +36,24 @@ class ProductsController extends Controller
 
         return redirect()->route('index');
     }
+
+    public function search(Request $request) {
+        $term = $request->input('term');
+        $products = Product::query()
+            ->select([
+                'id',
+                'name',
+                'description',
+                'price',
+                'currency',
+            ])
+            ->when($term, function ($query) use ($term) {
+                $query->whereRaw("MATCH (`name`, `description`) AGAINST ('*$term*' IN BOOLEAN MODE)");
+//            ->where('name', 'like', "%$term%")
+//            ->orWhere('description', 'like', "%$term%")
+            })
+            ->paginate(3);
+
+        return json_encode($products);
+    }
 }

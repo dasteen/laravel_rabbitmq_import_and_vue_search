@@ -19,11 +19,13 @@
         body {
             font-family: 'Nunito';
         }
-        .products_container {
-            margin-top: 130px;
-        }
     </style>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body class="antialiased bg-gray-100 dark:bg-gray-900">
     @yield('content')
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+    <script src="/js/main.js"></script>
 </body>

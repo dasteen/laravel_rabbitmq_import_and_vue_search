@@ -15,5 +15,6 @@ use App\Http\Controllers\ProductsController;
 */
 
 Route::get('', [ProductsController::class, 'index'])->name('index');
+Route::get('search', [ProductsController::class, 'search'])->name('search');
 Route::get('items/{id}', [ProductsController::class, 'show'])->name('items.show');
 Route::get('import', [ProductsController::class, 'import'])->name('import');
