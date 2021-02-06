@@ -37,17 +37,15 @@ class ProductsController extends Controller
 
     public function search(Request $request) {
         $term = $request->input('term');
-        $products = Product::query()
-            ->select([
+
+        $products = Product::select([
                 'id',
                 'name',
                 'description',
                 'price',
                 'currency',
             ])
-            ->when($term, function ($query) use ($term) {
-                $query->whereRaw("MATCH (`name`, `description`) AGAINST ('*$term*' IN BOOLEAN MODE)");
-            })
+            ->search($term)
             ->paginate(3);
 
         return json_encode($products);
